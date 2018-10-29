@@ -63,7 +63,7 @@ def piano_roll_to_midi(mat, fn, fs, volume=75):
     pm = piano_roll_to_pretty_midi(mat * volume, fs=fs, program=0)
     pm.write(fn)
 
-def generate_combine_piano_roll(midi_data, fs):
+def generate_combine_piano_roll(midi_data, fs, program=None):
     """
     Generates a piano roll from the provided midi_data with sampling frequency fs.
     Note that if instruments does not match eachother in dimension, padding will be used.
@@ -71,7 +71,7 @@ def generate_combine_piano_roll(midi_data, fs):
     mat = None
     for inst in midi_data.instruments:
         inst.remove_invalid_notes()
-        if inst.is_drum == False:# and inst.program == 0:
+        if inst.is_drum == False and (program is None or inst.program == program):
             inst_mat = inst.get_piano_roll(fs=fs)
             if mat is None:
                 mat = inst_mat
