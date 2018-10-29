@@ -1,5 +1,5 @@
-# Generating music using CNN and GAN
-A music generation project for Chalmers course SSY340. Made by Joakim Berntsson \& Adam Tonderski. Details of this project can be found in the [paper](asd.se).
+# Simple Adversarial Music Generation
+A music generation project for Chalmers course SSY340. Made by Joakim Berntsson \& Adam Tonderski. Details of this project can be found in the [paper](material/paper.pdf).
 
 ## Dependencies
 * Python 3.7
